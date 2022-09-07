@@ -1,0 +1,17 @@
+console.log('javascript is connected');
+
+
+/////////////////////  view   /////////////////////
+
+let questions = 
+let answer1 =
+let answer2 =
+let answer3 = 
+let answer4 =
+
+/////////////////////  control   /////////////////////
+
+
+
+
+/////////////////////  model   /////////////////////
