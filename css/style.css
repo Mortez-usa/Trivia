@@ -1,0 +1,281 @@
+/* color palette:
+	color: #c64a39;
+	color: #a23327;
+	color: #689775;
+	color: #907164;
+	color: #ac8173;
+*/
+
+* {
+	box-sizing: border-box;
+	font-family: arial, sans-serif;
+}
+
+/****************************************************/
+.welcomeMessage {
+	color: violet;
+	animation: appear 4s ease;
+	animation-iteration-count: 400;
+	margin: 40px;
+	min-width: 800px;
+}
+
+@keyframes appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
+	100% {
+		color: rgb(177, 0, 133);
+		transform: translateY(90%);
+		transform: scale(1.1);
+	}
+}
+
+.intro {
+}
+
+.whole {
+	visibility: hidden;
+}
+
+.enter {
+	font-size: 100px;
+	margin: 0;
+	min-width: 800px;
+	color: rgb(177, 0, 133);
+	cursor: pointer;
+}
+
+body {
+	background: snow;
+	text-align: center;
+}
+/****************************************************/
+.gameTitle {
+	margin: 90px 20px 20px 10px;
+	padding: 0;
+}
+
+.scores {
+	margin: 65px 30px;
+}
+
+.playerName {
+	margin: 30px 30px;
+}
+#name {
+	margin: 30px 30px;
+	padding: 12px;
+	width: 200px;
+	height: 30px;
+	border: 1px solid;
+}
+/****************************************************/
+.head {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: nowrap;
+	gap: 10em;
+	max-width: 80%;
+	min-width: 900px;
+	background-color: #c64a39;
+	margin: 20px auto;
+}
+
+.main {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-content: center;
+	flex-wrap: wrap;
+	gap: 1em;
+	max-width: 80%;
+	min-width: 900px;
+	min-height: 900px;
+	max-height: 800px;
+	background-color: #a23327;
+	margin: 10px auto;
+	height: 750px;
+	padding: 0;
+}
+
+.board {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: flex-start;
+	flex-wrap: wrap;
+	gap: 2em;
+	max-width: 570px;
+	min-width: 300px;
+	min-height: 800px;
+	max-height: 900px;
+	background-color: #689775;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+.side {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
+	gap: 3em;
+	max-width: 570px;
+	max-height: 700px;
+	background-color: #907164;
+	margin: 20px auto;
+}
+
+.category {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	max-height: 300px;
+	min-height: 300px;
+	margin: 10 auto;
+}
+
+.option {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+	gap: 1em;
+	max-width: 100%;
+	max-height: 100%;
+	margin: 10px auto;
+	padding: 5px;
+}
+/****************************************************/
+.question {
+	display: flex;
+	background-color: beige;
+	padding: 100px 100px 100px 100px;
+	margin: 0 auto;
+}
+
+.answer1 {
+	background-color: beige;
+	padding: 20px 100px 20px 100px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	max-width: 300px;
+	cursor: pointer;
+}
+.answer1:hover {
+	font-size: 100%;
+}
+
+.answer2 {
+	background-color: beige;
+	padding: 20px 100px 20px 100px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	cursor: pointer;
+}
+.answer2:hover {
+	font-size: 100%;
+}
+
+.answer3 {
+	background-color: beige;
+	padding: 20px 100px 20px 100px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	cursor: pointer;
+}
+.answer3:hover {
+	font-size: 100%;
+}
+
+.answer4 {
+	background-color: beige;
+	padding: 20px 100px 20px 100px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	cursor: pointer;
+}
+.answer4:hover {
+	font-size: 100%;
+}
+/****************************************************/
+.Ctgry1 {
+	background-color: beige;
+	padding: 20px 30px 20px 30px;
+	margin: 0 20px;
+	transition: font-size 0.1s;
+	cursor: pointer;
+}
+.Ctgry1:hover {
+	font-size: 110%;
+}
+
+.Ctgry2 {
+	background-color: beige;
+	padding: 20px 30px 20px 30px;
+	margin: 0 20px;
+	transition: font-size 0.1s;
+	cursor: pointer;
+}
+.Ctgry2:hover {
+	font-size: 110%;
+}
+
+.Ctgry3 {
+	background-color: beige;
+	padding: 20px 30px 20px 30px;
+	margin: 0 20px;
+	transition: font-size 0.1s;
+	cursor: pointer;
+}
+.Ctgry3:hover {
+	font-size: 110%;
+}
+
+.Ctgry4 {
+	background-color: beige;
+	padding: 20px 30px 20px 30px;
+	margin: 0 20px;
+	transition: font-size 0.1s;
+	cursor: pointer;
+}
+.Ctgry4:hover {
+	font-size: 110%;
+}
+/****************************************************/
+.start {
+	background-color: beige;
+	padding: 20px 50px 20px 50px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	cursor: pointer;
+}
+.restart {
+	background-color: beige;
+	padding: 20px 50px 20px 50px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	cursor: pointer;
+}
+.exit {
+	background-color: beige;
+	padding: 20px 50px 20px 50px;
+	margin: 0 auto;
+	transition: font-size 0.2s;
+	cursor: not-allowed;
+}
+
+.frog {
+	position: absolute;
+	margin: 670px auto;
+}
+/****************************************************/
+
+/****************************************************/
