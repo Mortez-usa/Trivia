@@ -10,10 +10,10 @@ let score = document.querySelector('.scores');
 let playerGame = document.querySelector('.playerGame');
 
 let question = document.querySelector('.question');
-let answer1 = document.querySelector('.answer1');
-let answer2 = document.querySelector('.answer2');
-let answer3 = document.querySelector('.answer3');
-let answer4 = document.querySelector('.answer4');
+let answerFor1 = document.querySelector('.answer1');
+let answerFor2 = document.querySelector('.answer2');
+let answerFor3 = document.querySelector('.answer3');
+let answerFor4 = document.querySelector('.answer4');
 
 let quizCategory1 = document.querySelector('.Ctgry1');
 let quizCategory2 = document.querySelector('.Ctgry2');
@@ -39,11 +39,23 @@ let questionCash = {
 		'How tall is Mount Everest?',
 		'In which US state can you find the city of Chicago?',
 	],
-	catg3: ['Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5'],
-	catg4: ['Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5'],
+	catg3: [
+		'Javascript is an _______ language?',
+		'Which of the following keywords is used to define a variable in Javascript?',
+		'Which of the following methods is used to access HTML elements using Javascript?',
+		'Upon encountering empty statements, what does the Javascript Interpreter do?',
+		'Which of the following methods can be used to display data in some form using Javascript?',
+	],
+	catg4: [
+		'General Assembly has _________ campuses',
+		'General Assembly has _________ hiring partners',
+		'General Assembly has _________ alumni netwok',
+		'General Assembly has _________ trained employees ',
+		'General Assembly focused on _________',
+	],
 };
 
-let answerCash1 = {
+let answerCash = {
 	ansr1: [
 		['ALU ', 'Memory ', 'Control unit ', 'CPU '],
 		[
@@ -65,9 +77,36 @@ let answerCash1 = {
 		['Mississippi ', 'Missouri ', 'Illinois ', 'Arizona '],
 	],
 
-	ansr3: ['Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5'],
+	ansr3: [
+		['Object-Oriented', 'Object-Based', 'Procedural', 'none of the above'],
+		['var', 'let', 'Both A and B', 'None of Above'],
+		[
+			'getElementById',
+			'getElementByClassName',
+			'Both A and B',
+			'None of the above',
+		],
+		[
+			'Throw an error',
+			'Ignores the staements',
+			'Gives a warning',
+			'None of the above',
+		],
+		['document.write()', 'console.log', 'window.alert()', 'All of the above'],
+	],
 
-	ansr4: ['Question 1', 'Question 2', 'Question 3', 'Question 4', 'Question 5'],
+	ansr4: [
+		['5+', '10+', '20+', '30+'],
+		['17000+', '18000+', '19000+', '20000+'],
+		['4000+', '8000+', '50000+', '70000+'],
+		['25000+', '30000+', '400+', '10000+'],
+		[
+			'developing programs and financing options',
+			'increasing hiring rate',
+			'expanding campuses',
+			'online courses',
+		],
+	],
 };
 
 let questioncashIdx = Math.floor(Math.random() * 5);
@@ -81,20 +120,38 @@ let ansrTxt2;
 let ansrTxt3;
 let ansrTxt4;
 
+let changeToTrue;
+let rightAnswer;
+let wrongAnswer1;
+let wrongAnswer2;
+let wrongAnswer3;
+let changeTofalse1;
+let changeTofalse2;
+let changeTofalse3;
+
 /////////////////////  control   /////////////////////
 
 function loadingQestion1() {
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt1 = questionCash.catg1[questionCashIdx];
-	ansrTxt0 = answerCash1.ansr1[questionCashIdx][0];
-	ansrTxt1 = answerCash1.ansr1[questionCashIdx][1];
-	ansrTxt2 = answerCash1.ansr1[questionCashIdx][2];
-	ansrTxt3 = answerCash1.ansr1[questionCashIdx][3];
+	ansrTxt0 = answerCash.ansr1[questionCashIdx][0];
+	ansrTxt1 = answerCash.ansr1[questionCashIdx][1];
+	ansrTxt2 = answerCash.ansr1[questionCashIdx][2];
+	ansrTxt3 = answerCash.ansr1[questionCashIdx][3];
 	let qasked = (question.innerHTML = questionTxt1);
-	let ansrgiven0 = (answer1.innerHTML = ansrTxt0);
-	let ansrgiven1 = (answer2.innerHTML = ansrTxt1);
-	let ansrgiven2 = (answer3.innerHTML = ansrTxt2);
-	let ansrgiven3 = (answer4.innerHTML = ansrTxt3);
+	let ansrgiven0 = (answerFor1.innerHTML = ansrTxt0);
+	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
+	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
+	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
+	if (questionCashIdx == 0) {
+		rightAnswer = answerFor4.addEventListener('click', final);
+		return rightAnswer;
+	} else {
+		rightAnswer;
+		wrongAnswer1 = answerFor1.addEventListener('click', wrong);
+		wrongAnswer2 = answerFor2.addEventListener('click', wrong);
+		wrongAnswer3 = answerFor3.addEventListener('click', wrong);
+	}
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
@@ -106,10 +163,10 @@ function loadingQestion2() {
 	ansrTxt2 = answerCash.ansr2[questionCashIdx][2];
 	ansrTxt3 = answerCash.ansr2[questionCashIdx][3];
 	let qasked = (question.innerHTML = questionTxt2);
-	let ansrgiven0 = (answer1.innerHTML = ansrTxt0);
-	let ansrgiven1 = (answer2.innerHTML = ansrTxt1);
-	let ansrgiven2 = (answer3.innerHTML = ansrTxt2);
-	let ansrgiven3 = (answer4.innerHTML = ansrTxt3);
+	let ansrgiven0 = (answerFor1.innerHTML = ansrTxt0);
+	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
+	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
+	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
@@ -121,26 +178,38 @@ function loadingQestion3() {
 	ansrTxt2 = answerCash.ansr3[questionCashIdx][2];
 	ansrTxt3 = answerCash.ansr3[questionCashIdx][3];
 	let qasked = (question.innerHTML = questionTxt3);
-	let ansrgiven0 = (answer1.innerHTML = ansrTxt0);
-	let ansrgiven1 = (answer2.innerHTML = ansrTxt1);
-	let ansrgiven2 = (answer3.innerHTML = ansrTxt2);
-	let ansrgiven3 = (answer4.innerHTML = ansrTxt3);
+	let ansrgiven0 = (answerFor1.innerHTML = ansrTxt0);
+	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
+	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
+	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
 function loadingQestion4() {
 	questionCashIdx = Math.floor(Math.random() * 5);
-	questionTxt3 = questionCash.catg4[questionCashIdx];
+	questionTxt4 = questionCash.catg4[questionCashIdx];
 	ansrTxt0 = answerCash.ansr4[questionCashIdx][0];
 	ansrTxt1 = answerCash.ansr4[questionCashIdx][1];
 	ansrTxt2 = answerCash.ansr4[questionCashIdx][2];
 	ansrTxt3 = answerCash.ansr4[questionCashIdx][3];
 	let qasked = (question.innerHTML = questionTxt4);
-	let ansrgiven0 = (answer1.innerHTML = ansrTxt0);
-	let ansrgiven1 = (answer2.innerHTML = ansrTxt1);
-	let ansrgiven2 = (answer3.innerHTML = ansrTxt2);
-	let ansrgiven3 = (answer4.innerHTML = ansrTxt3);
+	let ansrgiven0 = (answerFor1.innerHTML = ansrTxt0);
+	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
+	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
+	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
+}
+
+function final() {
+	let changeToTrue = (answerFor4.style.backgroundColor = 'green');
+	return changeToTrue;
+}
+function wrong() {
+	changeToTrue = answerFor4.style.backgroundColor = 'green';
+	changeTofalse1 = answerFor1.style.backgroundColor = '#a23327';
+	changeTofalse2 = answerFor2.style.backgroundColor = '#a23327';
+	changeTofalse3 = answerFor3.style.backgroundColor = '#a23327';
+	return changeToTrue, changeTofalse1, changeTofalse2, changeTofalse3;
 }
 
 function loadingcategory() {
@@ -157,6 +226,7 @@ function open() {
 
 enter.addEventListener('click', open);
 start.addEventListener('click', loadingcategory);
+
 quizCategory1.addEventListener('click', loadingQestion1);
 quizCategory2.addEventListener('click', loadingQestion2);
 quizCategory3.addEventListener('click', loadingQestion3);
