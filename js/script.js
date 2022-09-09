@@ -1,5 +1,3 @@
-console.log('javascript is connected');
-
 /////////////////////  model   /////////////////////
 
 let whole = document.querySelector('.whole');
@@ -22,7 +20,7 @@ let quizCategory4 = document.querySelector('.Ctgry4');
 
 let start = document.querySelector('.start');
 let restart = document.querySelector('.restart');
-let exit = document.querySelector('exit');
+let exit = document.querySelector('.exit');
 
 let questionCash = {
 	catg1: [
@@ -74,7 +72,7 @@ let answerCash = {
 		['River Severn ', 'River Trent ', 'River Thames ', 'River Great Ouse '],
 		['Asia ', 'South America ', 'Africa ', 'Europe '],
 		['6,849 m ', '7,849 m ', '8,849 m ', '9,849 m '],
-		['Mississippi ', 'Missouri ', 'Illinois ', 'Arizona '],
+		['Mississippi ', 'Illinois ', 'Missouri ', 'Arizona '],
 	],
 
 	ansr3: [
@@ -109,26 +107,29 @@ let answerCash = {
 	],
 };
 
-let questioncashIdx = Math.floor(Math.random() * 5);
+let questioncashIdx;
 let questionTxt1;
 let questionTxt2;
 let questionTxt3;
 let questionTxt4;
 
+let ansrTxt0;
 let ansrTxt1;
 let ansrTxt2;
 let ansrTxt3;
-let ansrTxt4;
 
-let changeToTrue;
 let rightAnswer;
-let wrongAnswer1;
-let wrongAnswer2;
-let wrongAnswer3;
-let changeTofalse1;
-let changeTofalse2;
-let changeTofalse3;
+let arrayOFAnswers = [ansrTxt0, ansrTxt1, ansrTxt2, ansrTxt3];
+let arrayOfRightAnswer = [
+	[4, 2, 3, 4, 1],
+	[1, 2, 3, 4, 3],
+	[1, 2, 3, 4, 1],
+	[1, 2, 3, 4, 2],
+];
+let arrayAnswerFor = [answerFor1, answerFor2, answerFor3, answerFor4];
 
+let categoryNum;
+let turnGreen;
 /////////////////////  control   /////////////////////
 
 function loadingQestion1() {
@@ -143,15 +144,11 @@ function loadingQestion1() {
 	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
-	if (questionCashIdx == 0) {
-		rightAnswer = answerFor4.addEventListener('click', final);
-		return rightAnswer;
-	} else {
-		rightAnswer;
-		wrongAnswer1 = answerFor1.addEventListener('click', wrong);
-		wrongAnswer2 = answerFor2.addEventListener('click', wrong);
-		wrongAnswer3 = answerFor3.addEventListener('click', wrong);
-	}
+	categoryNum = 0;
+	answerFor1.style.backgroundColor = 'beige';
+	answerFor2.style.backgroundColor = 'beige';
+	answerFor3.style.backgroundColor = 'beige';
+	answerFor4.style.backgroundColor = 'beige';
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
@@ -167,6 +164,11 @@ function loadingQestion2() {
 	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
+	categoryNum = 1;
+	answerFor1.style.backgroundColor = 'beige';
+	answerFor2.style.backgroundColor = 'beige';
+	answerFor3.style.backgroundColor = 'beige';
+	answerFor4.style.backgroundColor = 'beige';
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
@@ -182,6 +184,11 @@ function loadingQestion3() {
 	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
+	categoryNum = 2;
+	answerFor1.style.backgroundColor = 'beige';
+	answerFor2.style.backgroundColor = 'beige';
+	answerFor3.style.backgroundColor = 'beige';
+	answerFor4.style.backgroundColor = 'beige';
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
@@ -197,37 +204,69 @@ function loadingQestion4() {
 	let ansrgiven1 = (answerFor2.innerHTML = ansrTxt1);
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
+	categoryNum = 3;
+	answerFor1.style.backgroundColor = 'beige';
+	answerFor2.style.backgroundColor = 'beige';
+	answerFor3.style.backgroundColor = 'beige';
+	answerFor4.style.backgroundColor = 'beige';
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
-function final() {
-	let changeToTrue = (answerFor4.style.backgroundColor = 'green');
-	return changeToTrue;
-}
-function wrong() {
-	changeToTrue = answerFor4.style.backgroundColor = 'green';
-	changeTofalse1 = answerFor1.style.backgroundColor = '#a23327';
-	changeTofalse2 = answerFor2.style.backgroundColor = '#a23327';
-	changeTofalse3 = answerFor3.style.backgroundColor = '#a23327';
-	return changeToTrue, changeTofalse1, changeTofalse2, changeTofalse3;
+function showingRightAnswer() {
+	turnGreen =
+		arrayAnswerFor[arrayOfRightAnswer[categoryNum][questionCashIdx] - 1];
+	answerFor1.style.backgroundColor = '#a23327';
+	answerFor2.style.backgroundColor = '#a23327';
+	answerFor3.style.backgroundColor = '#a23327';
+	answerFor4.style.backgroundColor = '#a23327';
+	turnGreen.style.backgroundColor = 'green';
+	if (categoryNum == 0) {
+		let set = setTimeout(loadingQestion1, 2000);
+	}
+	if (categoryNum == 1) {
+		let set = setTimeout(loadingQestion2, 2000);
+	}
+	if (categoryNum == 2) {
+		let set = setTimeout(loadingQestion3, 2000);
+	}
+	if (categoryNum == 3) {
+		let set = setTimeout(loadingQestion4, 2000);
+		console.log(turnGreen);
+	}
 }
 
 function loadingcategory() {
 	return (question.innerHTML = 'Select your question category');
 }
 
-function open() {
+function init() {
 	whole.style.visibility = 'visible';
 	intro.style.display = 'none';
 	enter.innerHTML = '&#9759; Enter &#9759;';
 }
 
+function close() {
+	whole.style.display = 'none';
+	intro.style.display = 'none';
+}
+
+function restartGame() {
+	return location.reload();
+}
+
 /////////////////////  view   /////////////////////
 
-enter.addEventListener('click', open);
+enter.addEventListener('click', init);
 start.addEventListener('click', loadingcategory);
+exit.addEventListener('click', close);
+restart.addEventListener('click', restartGame);
 
 quizCategory1.addEventListener('click', loadingQestion1);
 quizCategory2.addEventListener('click', loadingQestion2);
 quizCategory3.addEventListener('click', loadingQestion3);
 quizCategory4.addEventListener('click', loadingQestion4);
+
+answerFor1.addEventListener('click', showingRightAnswer);
+answerFor2.addEventListener('click', showingRightAnswer);
+answerFor3.addEventListener('click', showingRightAnswer);
+answerFor4.addEventListener('click', showingRightAnswer);
