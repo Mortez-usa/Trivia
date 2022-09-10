@@ -107,7 +107,7 @@ let answerCash = {
 	],
 };
 
-let questioncashIdx;
+let questionCashIdx;
 let questionTxt1;
 let questionTxt2;
 let questionTxt3;
@@ -127,12 +127,13 @@ let arrayOfRightAnswer = [
 	[1, 2, 3, 4, 2],
 ];
 let arrayAnswerFor = [answerFor1, answerFor2, answerFor3, answerFor4];
-
+let questionSaving = [];
 let categoryNum;
 let turnGreen;
+let counter = 0;
 /////////////////////  control   /////////////////////
-
 function loadingQestion1() {
+	checkButton();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt1 = questionCash.catg1[questionCashIdx];
 	ansrTxt0 = answerCash.ansr1[questionCashIdx][0];
@@ -149,10 +150,25 @@ function loadingQestion1() {
 	answerFor2.style.backgroundColor = 'beige';
 	answerFor3.style.backgroundColor = 'beige';
 	answerFor4.style.backgroundColor = 'beige';
+	turnGreen.disabled = false;
+	counter += 1;
+	if (counter > 5) {
+		counter = 0;
+		questionTxt1 = question.innerHTML = 'FINISHED. start again';
+		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		answerFor1.disabled = true;
+		answerFor2.disabled = true;
+		answerFor3.disabled = true;
+		answerFor4.disabled = true;
+	}
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
 function loadingQestion2() {
+	checkButton();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt2 = questionCash.catg2[questionCashIdx];
 	ansrTxt0 = answerCash.ansr2[questionCashIdx][0];
@@ -169,10 +185,25 @@ function loadingQestion2() {
 	answerFor2.style.backgroundColor = 'beige';
 	answerFor3.style.backgroundColor = 'beige';
 	answerFor4.style.backgroundColor = 'beige';
+	turnGreen.disabled = false;
+	counter += 1;
+	if (counter > 5) {
+		counter = 0;
+		questionTxt2 = question.innerHTML = 'FINISHED. start again';
+		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		answerFor1.disabled = true;
+		answerFor2.disabled = true;
+		answerFor3.disabled = true;
+		answerFor4.disabled = true;
+	}
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
 function loadingQestion3() {
+	checkButton();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt3 = questionCash.catg3[questionCashIdx];
 	ansrTxt0 = answerCash.ansr3[questionCashIdx][0];
@@ -189,10 +220,25 @@ function loadingQestion3() {
 	answerFor2.style.backgroundColor = 'beige';
 	answerFor3.style.backgroundColor = 'beige';
 	answerFor4.style.backgroundColor = 'beige';
+	turnGreen.disabled = false;
+	counter += 1;
+	if (counter > 5) {
+		counter = 0;
+		questionTxt1 = question.innerHTML = 'FINISHED. start again';
+		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		answerFor1.disabled = true;
+		answerFor2.disabled = true;
+		answerFor3.disabled = true;
+		answerFor4.disabled = true;
+	}
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
 function loadingQestion4() {
+	checkButton();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt4 = questionCash.catg4[questionCashIdx];
 	ansrTxt0 = answerCash.ansr4[questionCashIdx][0];
@@ -209,17 +255,41 @@ function loadingQestion4() {
 	answerFor2.style.backgroundColor = 'beige';
 	answerFor3.style.backgroundColor = 'beige';
 	answerFor4.style.backgroundColor = 'beige';
+	turnGreen.disabled = false;
+	counter += 1;
+	console.log(counter)
+	if (counter > 5) {
+		counter = 0;
+		questionTxt1 = question.innerHTML = 'FINISHED. start again';
+		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		answerFor1.disabled = true;
+		answerFor2.disabled = true;
+		answerFor3.disabled = true;
+		answerFor4.disabled = true;
+	}
 	return qasked, ansrgiven0, ansrgiven1, ansrgiven2, ansrgiven3;
 }
 
-function showingRightAnswer() {
+
+let point = 0;
+function showingRightAnswer(event) {
+	if (
+		event.target ==
+		arrayAnswerFor[arrayOfRightAnswer[categoryNum][questionCashIdx] - 1]
+	) {
+		point += 5;
+		score.innerHTML = `Score: ${point}`;
+	}
 	turnGreen =
 		arrayAnswerFor[arrayOfRightAnswer[categoryNum][questionCashIdx] - 1];
 	answerFor1.style.backgroundColor = '#a23327';
 	answerFor2.style.backgroundColor = '#a23327';
 	answerFor3.style.backgroundColor = '#a23327';
 	answerFor4.style.backgroundColor = '#a23327';
-	turnGreen.style.backgroundColor = 'green';
+	turnGreen.style.backgroundColor = 'green'
 	if (categoryNum == 0) {
 		let set = setTimeout(loadingQestion1, 2000);
 	}
@@ -231,11 +301,10 @@ function showingRightAnswer() {
 	}
 	if (categoryNum == 3) {
 		let set = setTimeout(loadingQestion4, 2000);
-		console.log(turnGreen);
 	}
 }
 
-function loadingcategory() {
+function loadingCategory() {
 	return (question.innerHTML = 'Select your question category');
 }
 
@@ -254,10 +323,16 @@ function restartGame() {
 	return location.reload();
 }
 
+function checkButton() {
+	answerFor1.disabled = false;
+	answerFor2.disabled = false;
+	answerFor3.disabled = false;
+	answerFor4.disabled = false;
+}
 /////////////////////  view   /////////////////////
 
 enter.addEventListener('click', init);
-start.addEventListener('click', loadingcategory);
+start.addEventListener('click', loadingCategory);
 exit.addEventListener('click', close);
 restart.addEventListener('click', restartGame);
 
