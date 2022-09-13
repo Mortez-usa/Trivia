@@ -108,8 +108,6 @@ let answerCash = {
 };
 
 let questionCashIdx;
-let numSet = new Set([]);
-console.log(numSet);
 let questionTxt1;
 let questionTxt2;
 let questionTxt3;
@@ -368,8 +366,15 @@ function displayAnswerBox() {
 	answerFor4.style.display = 'block';
 }
 
-/////////////////////  view   /////////////////////
+let submit = document.querySelector('.submit');
+let input = document.querySelector('.fname');
+let submitTxt = document.querySelector('.submitTxt');
+submit.addEventListener('click', (event) => {
+	event.preventDefault();
+	submitTxt.innerHTML = input.value;
+});
 
+/////////////////////  view   /////////////////////
 enter.addEventListener('click', init);
 start.addEventListener('click', loadingCategory);
 exit.addEventListener('click', close);

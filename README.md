@@ -4,7 +4,7 @@ A README.md file that includes the following sections:
 
 
 (An embedded screenshot of the app)
-![screenshot 1](Asset/img/UI-1.0.png)
+![Screen Shot Trivia](Asset/img/ScreenShotTrivia.png)
 
 
 
