@@ -24,7 +24,7 @@ let exit = document.querySelector('.exit');
 
 let questionCash = {
 	catg1: [
-		'The brain of any computer system is',
+		'The brain of any computer system is?',
 		'What difference does the 5th generation computer have from other generation computers?',
 		'Which of the following computer language is used for artificial intelligence?',
 		"Which of the following is the 1's complement of 10?",
@@ -108,6 +108,8 @@ let answerCash = {
 };
 
 let questionCashIdx;
+let numSet = new Set([]);
+console.log(numSet);
 let questionTxt1;
 let questionTxt2;
 let questionTxt3;
@@ -133,7 +135,12 @@ let turnGreen;
 let counter = 0;
 /////////////////////  control   /////////////////////
 function loadingQuestion1() {
-	checkButton();
+	displayAnswerBox();
+	quizCategory1.disabled = true;
+	quizCategory2.disabled = false;
+	quizCategory3.disabled = false;
+	quizCategory4.disabled = false;
+	checkButtonOn();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt1 = questionCash.catg1[questionCashIdx];
 	ansrTxt0 = answerCash.ansr1[questionCashIdx][0];
@@ -146,19 +153,17 @@ function loadingQuestion1() {
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	categoryNum = 0;
-	answerFor1.style.backgroundColor = 'beige';
-	answerFor2.style.backgroundColor = 'beige';
-	answerFor3.style.backgroundColor = 'beige';
-	answerFor4.style.backgroundColor = 'beige';
+	turnBeige();
 	turnGreen.disabled = false;
 	counter += 1;
 	if (counter > 5) {
 		counter = 0;
-		questionTxt1 = question.innerHTML = 'FINISHED. start again';
+		questionTxt1 =
+			question.innerHTML = `FINISHED... your score is ( ${point} ) start again`;
 		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
-		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor4.innerHTML = 'FINISHED';
 		answerFor1.disabled = true;
 		answerFor2.disabled = true;
 		answerFor3.disabled = true;
@@ -168,7 +173,12 @@ function loadingQuestion1() {
 }
 
 function loadingQuestion2() {
-	checkButton();
+	displayAnswerBox();
+	quizCategory1.disabled = false;
+	quizCategory2.disabled = true;
+	quizCategory3.disabled = false;
+	quizCategory4.disabled = false;
+	checkButtonOn();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt2 = questionCash.catg2[questionCashIdx];
 	ansrTxt0 = answerCash.ansr2[questionCashIdx][0];
@@ -181,19 +191,17 @@ function loadingQuestion2() {
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	categoryNum = 1;
-	answerFor1.style.backgroundColor = 'beige';
-	answerFor2.style.backgroundColor = 'beige';
-	answerFor3.style.backgroundColor = 'beige';
-	answerFor4.style.backgroundColor = 'beige';
+	turnBeige();
 	turnGreen.disabled = false;
 	counter += 1;
 	if (counter > 5) {
 		counter = 0;
-		questionTxt2 = question.innerHTML = 'FINISHED. start again';
+		questionTxt2 =
+			question.innerHTML = `FINISHED... your score is ( ${point} ) start again`;
 		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
-		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor4.innerHTML = 'FINISHED';
 		answerFor1.disabled = true;
 		answerFor2.disabled = true;
 		answerFor3.disabled = true;
@@ -203,7 +211,12 @@ function loadingQuestion2() {
 }
 
 function loadingQuestion3() {
-	checkButton();
+	displayAnswerBox();
+	quizCategory1.disabled = false;
+	quizCategory2.disabled = false;
+	quizCategory3.disabled = true;
+	quizCategory4.disabled = false;
+	checkButtonOn();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt3 = questionCash.catg3[questionCashIdx];
 	ansrTxt0 = answerCash.ansr3[questionCashIdx][0];
@@ -216,19 +229,17 @@ function loadingQuestion3() {
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	categoryNum = 2;
-	answerFor1.style.backgroundColor = 'beige';
-	answerFor2.style.backgroundColor = 'beige';
-	answerFor3.style.backgroundColor = 'beige';
-	answerFor4.style.backgroundColor = 'beige';
+	turnBeige();
 	turnGreen.disabled = false;
 	counter += 1;
 	if (counter > 5) {
 		counter = 0;
-		questionTxt1 = question.innerHTML = 'FINISHED. start again';
+		questionTxt1 =
+			question.innerHTML = `FINISHED... your score is ( ${point} ) start again`;
 		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
-		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor4.innerHTML = 'FINISHED';
 		answerFor1.disabled = true;
 		answerFor2.disabled = true;
 		answerFor3.disabled = true;
@@ -238,7 +249,12 @@ function loadingQuestion3() {
 }
 
 function loadingQuestion4() {
-	checkButton();
+	displayAnswerBox();
+	quizCategory1.disabled = false;
+	quizCategory2.disabled = false;
+	quizCategory3.disabled = false;
+	quizCategory4.disabled = true;
+	checkButtonOn();
 	questionCashIdx = Math.floor(Math.random() * 5);
 	questionTxt4 = questionCash.catg4[questionCashIdx];
 	ansrTxt0 = answerCash.ansr4[questionCashIdx][0];
@@ -251,20 +267,17 @@ function loadingQuestion4() {
 	let ansrgiven2 = (answerFor3.innerHTML = ansrTxt2);
 	let ansrgiven3 = (answerFor4.innerHTML = ansrTxt3);
 	categoryNum = 3;
-	answerFor1.style.backgroundColor = 'beige';
-	answerFor2.style.backgroundColor = 'beige';
-	answerFor3.style.backgroundColor = 'beige';
-	answerFor4.style.backgroundColor = 'beige';
+	turnBeige();
 	turnGreen.disabled = false;
 	counter += 1;
-	console.log(counter);
 	if (counter > 5) {
 		counter = 0;
-		questionTxt1 = question.innerHTML = 'FINISHED. start again';
+		questionTxt1 =
+			question.innerHTML = `FINISHED... your score is ( ${point} ) start again`;
 		ansrTxt0 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt1 = answerFor1.innerHTML = 'FINISHED';
-		ansrTxt2 = answerFor2.innerHTML = 'FINISHED';
-		ansrTxt3 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt1 = answerFor2.innerHTML = 'FINISHED';
+		ansrTxt2 = answerFor3.innerHTML = 'FINISHED';
+		ansrTxt3 = answerFor4.innerHTML = 'FINISHED';
 		answerFor1.disabled = true;
 		answerFor2.disabled = true;
 		answerFor3.disabled = true;
@@ -305,7 +318,17 @@ function showingRightAnswer(event) {
 }
 
 function loadingCategory() {
-	return (question.innerHTML = 'Select your question category');
+	score.innerHTML = `Score: 0`;
+	ansrTxt0 = answerFor1.innerHTML = '';
+	ansrTxt1 = answerFor2.innerHTML = '';
+	ansrTxt2 = answerFor3.innerHTML = '';
+	ansrTxt3 = answerFor4.innerHTML = '';
+	answerFor1.disabled = true;
+	answerFor2.disabled = true;
+	answerFor3.disabled = true;
+	answerFor4.disabled = true;
+	question.innerHTML = 'Select your question category';
+	return;
 }
 
 function init() {
@@ -323,13 +346,27 @@ function restartGame() {
 	return location.reload();
 }
 
-function checkButton() {
+function checkButtonOn() {
 	answerFor1.disabled = false;
 	answerFor2.disabled = false;
 	answerFor3.disabled = false;
 	answerFor4.disabled = false;
+	return;
 }
 
+function turnBeige() {
+	answerFor1.style.backgroundColor = 'beige';
+	answerFor2.style.backgroundColor = 'beige';
+	answerFor3.style.backgroundColor = 'beige';
+	answerFor4.style.backgroundColor = 'beige';
+}
+
+function displayAnswerBox() {
+	answerFor1.style.display = 'block';
+	answerFor2.style.display = 'block';
+	answerFor3.style.display = 'block';
+	answerFor4.style.display = 'block';
+}
 
 /////////////////////  view   /////////////////////
 

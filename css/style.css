@@ -13,11 +13,19 @@
 
 /****************************************************/
 .welcomeMessage {
+	display: flex;
+	text-align: center;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
 	color: violet;
 	animation: appear 4s ease;
 	animation-iteration-count: 400;
-	margin: 40px;
-	min-width: 800px;
+	margin: auto;
+	padding: 0;
+	text-align: center;
 }
 
 @keyframes appear {
@@ -35,92 +43,116 @@
 }
 
 .intro {
+	margin: auto;
+	text-align: center;
 }
 
 .whole {
 	visibility: hidden;
+	margin: auto;
 }
 
 .enter {
 	font-size: 100px;
-	margin: 0;
-	min-width: 800px;
+	margin: auto;
 	color: rgb(177, 0, 133);
 	cursor: pointer;
+	text-align: center;
+}
+
+.img {
+	margin: auto;
+	text-align: center;
 }
 
 body {
+	display: flex;
 	background: snow;
 	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	margin: auto;
+	max-width: 80%;
 }
 /****************************************************/
 .gameTitle {
-	margin: 90px 20px 20px 10px;
+	margin: auto;
 	padding: 0;
+	font-weight: bold;
+	font-size: 50px;
 }
 
 .scores {
-	margin: 65px 30px;
-	font-size: 36px;
-	font-weight: bold;
+	font-size: 24px;
+	color: #66230d;
+	margin: 25px;
 }
 
 .playerName {
-	margin: 30px 30px;
+	margin: 0px;
+	color: #66230d;
 }
 #name {
-	margin: 30px 30px;
 	padding: 12px;
 	width: 200px;
 	height: 30px;
-	border: 1px solid;
+	border: 3px solid #ac8173;
+	color: #66230d;
+}
+
+.submit {
+	padding: 5px 20px 5px 20px;
+	color: #66230d;
+	border: 3px solid #ac8173;
+	margin-right: 25px;
+}
+
+.player {
+	font-size: 24px;
+	color: #66230d;
 }
 /****************************************************/
 .head {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
 	align-content: center;
+	align-items: center;
 	flex-wrap: nowrap;
-	gap: 10em;
-	max-width: 80%;
-	min-width: 900px;
+	max-width: 800px;
+	min-width: 800px;
 	background-color: #c64a39;
-	margin: 20px auto;
+	margin: auto;
 }
 
 .main {
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: center;
 	align-content: center;
-	flex-wrap: wrap;
-	gap: 1em;
-	max-width: 80%;
-	min-width: 900px;
-	min-height: 900px;
-	max-height: 800px;
+	align-items: center;
+	flex-wrap: nowrap;
 	background-color: #a23327;
-	margin: 10px auto;
-	height: 750px;
-	padding: 0;
+	max-width: 800px;
+	min-width: 800px;
+	margin: auto;
 }
 
 .board {
 	display: flex;
-	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
 	align-content: center;
-	flex-wrap: wrap;
+	align-items: center;
 	flex-flow: column;
 	gap: 2em;
-	max-width: 600px;
-	min-width: 350px;
-	min-height: 800px;
-	max-height: 900px;
 	background-color: #689775;
-	margin: 20px 20px;
-	padding: 20px;
+	padding: 25px;
+	max-width: 530px;
+	min-width: 530px;
+	margin-left: 0px;
 }
 
 .side {
@@ -128,12 +160,14 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-content: center;
-	flex-wrap: wrap;
+	align-items: center;
+	flex-wrap: nowrap;
 	gap: 3em;
-	max-width: 570px;
-	max-height: 700px;
+	max-width: 220px;
 	background-color: #907164;
-	margin: 20px auto;
+	margin-left: auto;
+	margin-right: 25px;
+	padding: 15px;
 }
 
 .category {
@@ -160,136 +194,227 @@ body {
 .question {
 	display: flex;
 	background-color: beige;
-	padding: 100px 100px 100px 100px;
-	margin: 0 auto;
+	border-radius: 12px;
+	align-items: center;
+	justify-content: center;
+	min-width: 400px;
+	min-height: 400px;
+	padding: 10px;
 }
 
 .answer1 {
 	background-color: beige;
-	padding: 20px 120px 20px 120px;
+	border-radius: 12px;
+	font-weight: bold;
 	margin: 0 auto;
 	transition: font-size 0.2s;
-	max-width: 300px;
+	max-width: 400px;
+	min-width: 300px;
+	max-height: 100px;
+	min-height: 50px;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
 .answer1:hover {
 	font-size: 100%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 
 .answer2 {
 	background-color: beige;
-	padding: 20px 120px 20px 120px;
+	border-radius: 12px;
+	font-weight: bold;
 	margin: 0 auto;
 	transition: font-size 0.2s;
+	max-width: 400px;
+	min-width: 300px;
+	max-height: 100px;
+	min-height: 50px;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
 .answer2:hover {
 	font-size: 100%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 
 .answer3 {
 	background-color: beige;
-	padding: 20px 120px 20px 120px;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 400px;
+	min-width: 300px;
+	max-height: 100px;
+	min-height: 50px;
 	margin: 0 auto;
 	transition: font-size 0.2s;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
 .answer3:hover {
 	font-size: 100%;
+	max-width: 400px;
+	min-width: 300px;
+	max-height: 100px;
+	min-height: 50px;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 
 .answer4 {
 	background-color: beige;
-	padding: 20px 120px 20px 120px;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 400px;
+	min-width: 300px;
+	max-height: 100px;
+	min-height: 50px;
 	margin: 0 auto;
 	transition: font-size 0.2s;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
 .answer4:hover {
 	font-size: 100%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 /****************************************************/
 .Ctgry1 {
 	background-color: beige;
-	padding: 20px 30px 20px 30px;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 400px;
+	min-width: 120px;
+	max-height: 100px;
+	min-height: 50px;
 	margin: 0 20px;
 	transition: font-size 0.1s;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
 .Ctgry1:hover {
 	font-size: 110%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 
 .Ctgry2 {
 	background-color: beige;
-	padding: 20px 30px 20px 30px;
+	border: 5px solid #ac8173;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 400px;
+	min-width: 120px;
+	max-height: 100px;
+	min-height: 50px;
 	margin: 0 20px;
 	transition: font-size 0.1s;
 	cursor: pointer;
 }
 .Ctgry2:hover {
 	font-size: 110%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 
 .Ctgry3 {
 	background-color: beige;
-	padding: 20px 30px 20px 30px;
+	border: 5px solid #ac8173;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 400px;
+	min-width: 200px;
+	max-height: 100px;
+	min-height: 50px;
+	margin: 0 20px;
 	margin: 0 20px;
 	transition: font-size 0.1s;
 	cursor: pointer;
 }
 .Ctgry3:hover {
 	font-size: 110%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 
 .Ctgry4 {
 	background-color: beige;
-	padding: 20px 30px 20px 30px;
+	border: 5px solid #ac8173;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 400px;
+	min-width: 120px;
+	max-height: 100px;
+	min-height: 50px;
+	margin: 0 20px;
 	margin: 0 20px;
 	transition: font-size 0.1s;
 	cursor: pointer;
 }
 .Ctgry4:hover {
 	font-size: 110%;
+	border: 5px solid #c8c20a;
+	transition: 200ms;
+	font-weight: bold;
 }
 /****************************************************/
 .start {
 	background-color: beige;
-	padding: 20px 50px 20px 50px;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 120px;
+	min-width: 120px;
+	max-height: 60px;
+	min-height: 50px;
 	margin: 0 auto;
 	transition: font-size 0.2s;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
+
+.start:hover {
+	border: 5px solid #c8c20a;
+	transition: 200ms;
+}
+
 .restart {
 	background-color: beige;
-	padding: 20px 50px 20px 50px;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 120px;
+	min-width: 120px;
+	max-height: 60px;
+	min-height: 50px;
 	margin: 0 auto;
 	transition: font-size 0.2s;
+	border: 5px solid #ac8173;
 	cursor: pointer;
 }
+
+.restart:hover {
+	border: 5px solid #c8c20a;
+	transition: 200ms;
+}
+
 .exit {
 	background-color: beige;
-	padding: 20px 50px 20px 50px;
+	border-radius: 12px;
+	font-weight: bold;
+	max-width: 120px;
+	min-width: 120px;
+	max-height: 60px;
+	min-height: 50px;
 	margin: 0 auto;
 	transition: font-size 0.2s;
+	border: 5px solid #ac8173;
 	cursor: not-allowed;
 }
 
-.frog {
-	display: inline;
-	margin: 0 auto;
-	padding: 0;
-	height: 0px;
-	width: 100px;
-
-}
-/****************************************************/
-.submit {
-	padding: 5px 20px 5px 20px;
-	margin: 0;
-}
-
-.player {
-	font-size: 1.5em;
+.exit:hover {
+	border: 5px solid #c8c20a;
+	transition: 200ms;
 }
 /****************************************************/
